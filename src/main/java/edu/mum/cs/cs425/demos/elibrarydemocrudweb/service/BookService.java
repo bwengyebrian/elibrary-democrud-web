@@ -7,6 +7,7 @@ public interface BookService {
     public abstract Iterable<Book> getAllBooks();
     public abstract Book saveBook(Book book);
     public abstract Book getBookById(Integer bookId);
+    public abstract Iterable<Book> searchBook(String s);
     public abstract void deleteBookById(Integer bookId);
 
 }

@@ -38,4 +38,9 @@ public class BookServiceImpl implements BookService {
         repository.deleteById(bookId);
     }
 
+	@Override
+	public Iterable<Book> searchBook(String s) {
+		return repository.getAllByTitleContainsOrIsbnContainsOrPublisherContainsOrderByTitle(s,s, s);
+	}
+
 }

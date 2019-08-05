@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -70,6 +72,15 @@ public class BookController {
     public String deleteBook(@PathVariable Integer bookId, Model model) {
         bookService.deleteBookById(bookId);
         return "redirect:/elibrary/book/list";
+    }
+    
+    @GetMapping(value= {"/elibrary/book/searchbooklist/","/elibrary/book/searchbooklist"})
+    public ModelAndView searchBookList( @RequestParam("searchItems") String searchItems) {
+    	ModelAndView modelAndview = new ModelAndView();
+    	modelAndview.addObject("books", bookService.searchBook(searchItems));
+    	modelAndview.addObject("searchItems", searchItems);
+    	modelAndview.setViewName("book/searchlistresults");
+    	return modelAndview;
     }
 
 }

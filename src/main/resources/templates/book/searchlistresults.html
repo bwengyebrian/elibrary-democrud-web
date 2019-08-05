@@ -46,8 +46,9 @@
 
 	<div style="padding-top: 1em;" class="container">
 		<div>
-			<span style="font-size: 2em; color: #32a5e7;">Books in our
-				Collection</span> <span style="float: right;"> <a
+			<span style="font-size: 2em; color: #32a5e7;">Book Search
+				Results for : <span th:text="${searchItems}"></span>
+			</span> <span style="float: right;"> <a
 				class="btn btn-outline-success btn-lg" href="/elibrary/book/new">Add
 					New Book</a>
 			</span>
@@ -71,7 +72,7 @@
 					</table>
 				</form>
 			</div>
-			<br>
+			</br>
 			<table class="table table-striped">
 				<thead>
 					<tr>
